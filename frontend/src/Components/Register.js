@@ -2,7 +2,6 @@ import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
-
 const Register = () => {
 
     const navigate = useNavigate()

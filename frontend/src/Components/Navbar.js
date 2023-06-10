@@ -1,18 +1,20 @@
 import React from 'react'
+import "./Navbar.css"
 import LoginIcon from '@mui/icons-material/Login';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { NavLink } from 'react-router-dom';
 const Navbar = () => {
+
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light shadow">
+            <nav className="navbar navbar-expand-lg navbar-light  shadow">
                 <div className="container-fluid">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
+                            <li className="nav-item" >
                                 <NavLink className="nav-link active"  to="/">Home</NavLink>
                             </li>
                             <li className="nav-item">

@@ -6,15 +6,17 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 
-
-
+//config
 dotenv.config({ path: "./config.env" })
 require("./db/conn");
 const port = process.env.PORT;
 
+
 //models
-const Users = require("./models/userSchema")
-const Message=require("./models/msgSchema")
+const Users = require("./models/userSchema");
+const Message = require("./models/msgSchema");
+
+
 
 
 app.use(express.json())
@@ -22,10 +24,9 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
 
-
-//register
+//Register
 app.post('/register', async (req, res) => {
-        try {
+   try {
       const username = req.body.username
       const email = req.body.email
       const password = req.body.password
@@ -39,8 +40,8 @@ app.post('/register', async (req, res) => {
       const created = await createUser.save()
       console.log(created)
       res.status(200).send("Registered");
-
-   } catch (error) {
+   }
+   catch (error) {
       res.status(400).send(error)
    }
 })
@@ -78,19 +79,21 @@ app.post("/login", async (req, res) => {
    }
 })
 
-//meassge
-app.post("/message",async(req,res)=>{
+
+
+//message
+app.post("/message", async (req, res) => {
    try {
-      const name=req.body.name;
-      const email=req.body.email;
-      const meassge=req.body.meassge;
-      
-      const sendMsg=new Message({
-         name:name,
-         email:email,
-         meassge:meassge
+      const name = req.body.name;
+      const email = req.body.email;
+      const message = req.body.message;
+
+      const sendMsg = new Message({
+         name: name,
+         email: email,
+         message: message
       })
-      const created=await sendMsg.save()
+      const created = await sendMsg.save()
       console.log(created)
       res.status(200).send("sent")
    } catch (error) {
@@ -99,17 +102,19 @@ app.post("/message",async(req,res)=>{
 })
 
 
-//logout
-app.get("/logout",(req,res)=>{
-   res.clearCookie("jwt",{path:"/"})
+//Log out
+app.get("/logout", (req, res) => {
+   res.clearCookie("jwt", { path: "/" });
    res.status(200).send("User Logged Out")
 })
 
-//Authentication
-app.get("/auth",authenticate,(req,res)=>{
-   
-})
+
+// // Authentication
+// app.get("/auth", authenticate, (req, res) => {
 
 
-//runnig the server
-app.listen(port, () => console.log("Server Started"))
+// })
+
+
+//Run the server
+app.listen(port, () => { console.log("Server Started") })

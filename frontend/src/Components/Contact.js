@@ -1,6 +1,8 @@
 import React from 'react'
 import SendIcon from '@mui/icons-material/Send';
+
 import { useState } from 'react';
+
 const Contact = () => {
 
     const [msg, setMsg] = useState({
@@ -46,19 +48,25 @@ const Contact = () => {
 
     return (
         <>
-            <div className='container my-5 py-5'>
+            <div className='container my-2 py-2'>
                 <div className='row mb-5'>
                     <div className='col-12'>
-                        <h3 className='fs-5 text-center mb-0'>Contact Us</h3>
-                        <h1 className=' display-6 text-center mb-4'>Have Some <b>Question ?</b></h1>
+                        <h1 className='fw-5 text-center mt-3'>Contact Me</h1>
+                        <hr className='w-25 mx-auto ' />
                     </div>
                 </div>
                 <div className='row'>
-                    <div className='col-md-6'>
-                        <img src='https://th.bing.com/th/id/OIP.NHM_7d8ER88FEpDRjfmBOgHaIE?pid=ImgDet&rs=1' alt='Contact' className='w-75' />
+                    <div className='col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6'>
+                        <form >
+                            <input className="form-control my-3 py-3 border-0" type="text" value="+91 6309373318" aria-label="Disabled input example" disabled />
+                            <input className="form-control my-4 py-3 border-0" type="text" value="https://app.netlify.com/teams/seshadrikaku/overview" aria-label="Disabled input example" disabled />
+                            <input className="form-control my-4 py-3 border-0" type="text" value="kakuseshadri033@gmail.com" aria-label="Disabled input example" disabled />
+                            <input className="form-control my-4 py-3 border-0" type="text" value="Hyderabd, Telengana, India" aria-label="Disabled input example" disabled />
+                        </form>
+
                     </div>
-                    <div className='col-md-6'>
-                        <form method='POST' onSubmit={handleSubmit}>
+                    <div className='col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6'>
+                        <form onSubmit={handleSubmit} method='POST'>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Your Name</label>
                                 <input type="text" class="form-control" id="name" placeholder="Enter name" name='name' value={msg.name} onChange={handleChange} />
@@ -71,7 +79,7 @@ const Contact = () => {
                                 <label for="exampleFormControlTextarea1" class="form-label">Your Message</label>
                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name='message' value={msg.message} onChange={handleChange}></textarea>
                             </div>
-                            <button type='submit' className='btn btn-outline-primary'>Send Message <SendIcon /></button>
+                            <button type='submit' className='btn btn-outline-primary '>Send Message <SendIcon /></button>
                         </form>
                     </div>
                 </div>

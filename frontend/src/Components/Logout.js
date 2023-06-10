@@ -1,10 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useState,useEffect } from 'react'
+import { useEffect } from 'react'
 const Logout = () => {
 
-    const navigate = useNavigate()
+    const Navigate = useNavigate()
+
     const logout = async () => {
+
         try {
             const res = await fetch("/logout", {
                 method: "GET",
@@ -17,7 +19,7 @@ const Logout = () => {
             if (res.status === 401 || !res) {
                 window.alert("Please Logout Later")
             } else {
-                navigate("/")
+                Navigate("/")
                 window.location.reload()
             }
         } catch (error) {

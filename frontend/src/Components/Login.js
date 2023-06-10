@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink  } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
+
+    const Navigate=useNavigate()
 
     const [user, setUser] = useState({
         email:"",
@@ -26,11 +29,11 @@ const Login = () => {
                     email,password
                 })
             })
-            if(res.status===400 || !res ){
+            if(res.status === 400 || !res ){
                 window.alert("Invalid user")
             }else{
                 window.alert("Login successfull");
-                window.location.reload();
+               Navigate("/dashboard")
             }
         } catch (error) {
             console.log(error)
@@ -41,7 +44,7 @@ const Login = () => {
         <>
             <div className='container shadow my-5'>
                 <div className='row'>
-                    <div className='col-md-5 d-flex flex-column align-items-center text-white justify-content-center form'>
+                    <div className='col-md-6 d-flex flex-column align-items-center text-white justify-content-center form'>
                         <h1 className='display-4 fw-bolder'>Welcome Back</h1>
                         <p className=' text-center'> Enter Your Credentials To Login  </p>
                         <h4 className='mb-4'>OR</h4>
